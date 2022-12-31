@@ -1,23 +1,42 @@
 import 'dart:io';
-
 void main(List<String> args) {
-  print('enter first number');
-  int a = int.parse(stdin.readLineSync()!);
-  print('enter second number');
-  int b = int.parse(stdin.readLineSync()!);
+  var a,ans;
+  print('Enter the number : ');       
+    ans = double.parse(stdin.readLineSync()!);
 
-  if(a>b){
-    for(int i=b+1;i<a;i--){
-      if(i%2==0 && i%3!=0){
-        print(i);
-      }
+  while(true){
+    print('1 : Addition \n2 : Substraction \n3 : Multiplication \n4 : Division');
+    String ch = stdin.readLineSync()!;
+
+    if(ch == '='){
+      print('Answer = $ans');
+      break;
     }
-  }
 
-  if(b>a){
-    for(int i=a+1;i<b;i++){
-      if(i%2==0 && i%3!=0){
-        print(i);
+    else{
+      print('Enter the number : ');       
+      a = double.parse(stdin.readLineSync()!);
+
+      switch(ch){
+        case '1' :
+          ans += a; 
+          break;
+
+        case '2' :
+          ans -= a;
+          break;
+
+        case '3' :
+          ans *= a;
+          break;
+
+        case '4' :
+          ans /= a;
+          break;
+
+        default :
+          print('Enter valid choice..!');
+          break;
       }
     }
   }
